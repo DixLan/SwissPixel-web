@@ -96,6 +96,42 @@ p {
     color: #555;
 }
 
+#about {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#about h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#about p {
+    font-size: 1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    line-height: 1.6;
+}
+
+#about .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#about h2, #about h3, #about p {
+    text-align: center;
+}
+
 .service {
     text-align: center;
     margin-bottom: 40px;
