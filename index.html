@@ -9,23 +9,29 @@
 <body>
     <header>
         <div class="logo">
-            <h1>SwissPixel</h1>
+            <h1>SwissPixel&CO</h1>
         </div>
         <nav>
             <ul>
                 <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Photo</a></li>
+                <li><a href="#video-prestations">Vidéos</a></li>
                 <li><a href="#apropos">À propos</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+
+    
     <section class="hero" id="accueil">
-        <video autoplay muted loop class="hero-video">
-            <source src="images/video.mp4" type="video/mp4">
-        </video>
+        <!--
+        <video autoplay muted loop class="hero-video" controls>
+            <source src="images/vid2.mp4" type="video/mp4" alt="Projet 1">
+            Votre navigateur ne supporte pas l'élément vidéo.
+        </video>-->
+        <video autoplay muted loop src="images/intro.webm" type="video/webm" class="hero-video" ></video>
+        
         <div class="hero-text">
             <h2>Capturez l'instant, créez l'émotion</h2>
             <a href="#portfolio" class="cta-button">Découvrir nos créations</a>
@@ -35,7 +41,7 @@
     <section id="portfolio">
         <h2>Nos Réalisations</h2>
         <div class="gallery">
-            <div class="gallery-item">
+            <div class="gallery-item fade-in">
                 <a href="images/photo1.webp" class="lightbox">
                     <img src="images/photo1.webp" alt="Projet 1">
                 </a>
@@ -44,31 +50,31 @@
                     <p>Description du projet 1</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item fade-in">
                 <a href="images/photo2.webp" class="lightbox">
                     <img src="images/photo2.webp" alt="Projet 1">
                 </a>
                 <div class="gallery-info">
-                    <h3>Projet 1</h3>
-                    <p>Description du projet 1</p>
+                    <h3>Projet 2</h3>
+                    <p>Description du projet 2</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item fade-in">
                 <a href="images/photo3.webp" class="lightbox">
                     <img src="images/photo3.webp" alt="Projet 1">
                 </a>
                 <div class="gallery-info">
-                    <h3>Projet 1</h3>
-                    <p>Description du projet 1</p>
+                    <h3>Projet 2</h3>
+                    <p>Description du projet 2</p>
                 </div>
             </div>
-            <div class="gallery-item">
+            <div class="gallery-item fade-in">
                 <a href="images/photo4.webp" class="lightbox">
                     <img src="images/photo4.webp" alt="Projet 1">
                 </a>
                 <div class="gallery-info">
-                    <h3>Projet 1</h3>
-                    <p>Description du projet 1</p>
+                    <h3>Projet 2</h3>
+                    <p>Description du projet 2</p>
                 </div>
             </div>
             <!-- Ajouter plus d'éléments selon le besoin -->
@@ -77,7 +83,7 @@
 
     <section id="video-prestations">
         <h2>Nos Prestations Vidéo</h2>
-        <div class="video-gallery">
+        <div class="video-gallery fade-in">
             <div class="video-item">
                 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lrGs0Uh_xmI?si=ZS95RcoNSpaOqi4j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="video-info">
@@ -86,19 +92,19 @@
                 </div>
             </div>
     
-            <div class="video-item">
+            <div class="video-item fade-in">
                 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/sqnROxhOnhI?si=oBC6TiMbjYMPYaWW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="video-info">
-                    <h3>Projet Vidéo 2</h3>
-                    <p>Description du projet vidéo 2</p>
+                    <h3>Vogue de Bardonnex 2023 - Jeunesse de Bardonnex</h3>
+                    <p>Vidéo de la vogue de Bardonnex 2023 dans le canton de Genève.</p>
                 </div>
             </div>
     
-            <div class="video-item">
+            <div class="video-item fade-in">
                 <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/DjT0btjVurA?si=A3-OQX305Tf5it0F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 <div class="video-info">
-                    <h3>Projet Vidéo 3</h3>
-                    <p>Description du projet vidéo 3</p>
+                    <h3>Aftermovie hot siberia 2024</h3>
+                    <p>-</p>
                 </div>
             </div>
             <!-- Ajouter plus de vidéos si nécessaire -->

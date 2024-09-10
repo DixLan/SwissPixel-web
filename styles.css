@@ -12,6 +12,7 @@ body {
 header {
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
+    color: #fff;
     width: 100%;
     top: 0;
     padding: 20px 40px;
@@ -58,7 +59,7 @@ header nav ul li a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
+
 }
 
 .hero-text {
@@ -284,4 +285,16 @@ footer {
     max-width: 90%;
     max-height: 90%;
     border: 5px solid #fff;
+}
+
+/* Animation pour faire apparaître les éléments de manière fluide */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

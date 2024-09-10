@@ -16,3 +16,30 @@ document.querySelectorAll('.lightbox').forEach(image => {
         });
     });
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+
+
+
+
+// Observer pour déclencher l'animation d'apparition
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+
+// Applique l'animation aux éléments que l'on souhaite faire apparaître
+document.querySelectorAll('.fade-in').forEach(el => {
+    observer.observe(el);
+});
