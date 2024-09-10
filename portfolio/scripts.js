@@ -1,13 +1,30 @@
-// Menu burger toggle
+// Fonction pour activer le menu burger
 const burgerMenu = document.getElementById('burger-menu');
 const menu = document.getElementById('menu');
 
+// Ouvrir/fermer le menu burger au clic
 burgerMenu.addEventListener('click', () => {
-    menu.classList.toggle('show');
+    menu.classList.toggle('show'); // Ajoute/retire la classe 'show' pour ouvrir/fermer le menu
+});
+
+// Ajouter des écouteurs d'événements pour chaque lien du menu
+const menuLinks = document.querySelectorAll('#menu a');
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Empêche le comportement par défaut du lien
+        const category = link.getAttribute('data-category'); // Récupérer la catégorie choisie
+        loadImages(category); // Charger les images de la catégorie sélectionnée
+        menu.classList.remove('show'); // Fermer le menu après sélection
+    });
 });
 
 // Fonction pour charger les images avec lazy loading
 function loadImages(category) {
+    // Mettre à jour le titre avec la catégorie actuelle
+    const categoryTitle = document.getElementById('category-title');
+    categoryTitle.textContent = `Catégorie : ${capitalizeFirstLetter(category)}`;
+
     fetch('images.json')
         .then(response => response.json())
         .then(data => {
@@ -31,6 +48,12 @@ function loadImages(category) {
         })
         .catch(error => console.error('Erreur lors du chargement des images:', error));
 }
+
+// Fonction pour capitaliser la première lettre de la catégorie
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 
 // Ajuste la hauteur des images en fonction de leur aspect ratio
 function adjustImageHeight(item, img) {
@@ -79,8 +102,6 @@ document.getElementById('lightbox').addEventListener('click', (e) => {
 
 // Fermer la Lightbox avec le bouton de fermeture
 document.querySelector('.lightbox .close').addEventListener('click', closeLightbox);
-
-
 
 // Charger par défaut la catégorie "evenements"
 window.onload = () => {
