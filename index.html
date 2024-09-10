@@ -1,167 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwissPixel - Photographie & Vidéo</title>
-    <link rel="icon" href="images/logo.ico" sizes="32x32" type="image/x-icon">
-    <link rel="icon" href="images/logo.ico" sizes="128x128" type="image/x-icon">
-    <link rel="shortcut icon" href="images/logo.ico" type="image/x-icon">    
+    <title>SwissPixel - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
     <header>
-        <div class="container">
+        <div class="logo">
             <h1>SwissPixel</h1>
-            <nav>
-                <ul>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Équipe</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h2>Moments capturés avec élégance</h2>
-            <a href="#contact" class="btn">Nous contacter</a>
-        </div>
-    </section>
-
-    <section id="about">
-        <div class="container">
-            <h2>À propos</h2>             
-            <h3>Nos Services</h3>
-            <p>SwissPixel offre une gamme complète de services de photographie et de vidéographie. Nos services comprennent la photographie de paysage, la couverture d'événements (mariages, conférences, etc.), la production vidéo (publicité, films d'entreprise), et des services d'édition avancée pour garantir que chaque image et vidéo est parfaite. Que vous cherchiez à capturer la beauté naturelle des Alpes suisses ou à créer une vidéo promotionnelle pour votre entreprise, nous avons l'expertise et la passion pour transformer votre vision en réalité.</p>
-            
-            <p>Nous sommes fiers de notre travail et nous croyons que cela se reflète dans chaque projet que nous réalisons. Si vous souhaitez en savoir plus sur nos services ou discuter de la manière dont nous pouvons vous aider à capturer vos moments précieux, n'hésitez pas à nous contacter. Nous serions ravis de collaborer avec vous et de faire partie de votre prochaine aventure visuelle.</p>
+    <section class="hero" id="accueil">
+        <video autoplay muted loop class="hero-video">
+            <source src="images/video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-text">
+            <h2>Capturez l'instant, créez l'émotion</h2>
+            <a href="#portfolio" class="cta-button">Découvrir nos créations</a>
         </div>
     </section>
 
     <section id="portfolio">
-        <div class="container">
-            <h2>Photos</h2>
-            <div class="gallery">
-                <img class="lazy" src="images/photo1.webp" alt="Photo 1">
-                <img class="lazy" src="images/photo2.webp" alt="Photo 2">
-                <img class="lazy" src="images/photo3.webp" alt="Photo 3">
-                <img class="lazy" src="images/photo4.webp" alt="Photo 4">
+        <h2>Nos Réalisations</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <a href="images/photo1.webp" class="lightbox">
+                    <img src="images/photo1.webp" alt="Projet 1">
+                </a>
+                <div class="gallery-info">
+                    <h3>Projet 1</h3>
+                    <p>Description du projet 1</p>
+                </div>
             </div>
+            <div class="gallery-item">
+                <a href="images/photo2.webp" class="lightbox">
+                    <img src="images/photo2.webp" alt="Projet 1">
+                </a>
+                <div class="gallery-info">
+                    <h3>Projet 1</h3>
+                    <p>Description du projet 1</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <a href="images/photo3.webp" class="lightbox">
+                    <img src="images/photo3.webp" alt="Projet 1">
+                </a>
+                <div class="gallery-info">
+                    <h3>Projet 1</h3>
+                    <p>Description du projet 1</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <a href="images/photo4.webp" class="lightbox">
+                    <img src="images/photo4.webp" alt="Projet 1">
+                </a>
+                <div class="gallery-info">
+                    <h3>Projet 1</h3>
+                    <p>Description du projet 1</p>
+                </div>
+            </div>
+            <!-- Ajouter plus d'éléments selon le besoin -->
         </div>
     </section>
 
-    <section id="videos">
-        <div class="container">
-            <h2>Portfolio Vidéos</h2>
-            <div class="video-gallery">
-                <div class="video">
-                    <iframe src="https://www.youtube-nocookie.com/embed/Kx3KsBfKyzY?si=I82VrVipqLoITpQ3&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video">
-                    <iframe src="https://www.youtube-nocookie.com/embed/obqsPP7KZ6U?si=nYx522LIuvH9l8W_&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video">
-                    <iframe src="https://www.youtube-nocookie.com/embed/I_aYLSKnGzU?si=uMOOZGzQ7JL34OCo&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <div class="video">
-                    <iframe src="https://www.youtube-nocookie.com/embed/lrGs0Uh_xmI?si=2agfmLQRPincaguv&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <section id="video-prestations">
+        <h2>Nos Prestations Vidéo</h2>
+        <div class="video-gallery">
+            <div class="video-item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/lrGs0Uh_xmI?si=ZS95RcoNSpaOqi4j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Reconstitution historique dans un ancien bunker Suisse</h3>
+                    <p>Une ancienne mine réarrangée en bunker pendant la seconde guerre mondiale entre 39 et 40.</p>
                 </div>
             </div>
+    
+            <div class="video-item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/sqnROxhOnhI?si=oBC6TiMbjYMPYaWW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Projet Vidéo 2</h3>
+                    <p>Description du projet vidéo 2</p>
+                </div>
+            </div>
+    
+            <div class="video-item">
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/DjT0btjVurA?si=A3-OQX305Tf5it0F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div class="video-info">
+                    <h3>Projet Vidéo 3</h3>
+                    <p>Description du projet vidéo 3</p>
+                </div>
+            </div>
+            <!-- Ajouter plus de vidéos si nécessaire -->
         </div>
-    </section>
-
-    <section id="services">
-        <div class="container">
-            <h2>Services</h2>
-            <div class="service">
-                <h3>Photographie</h3>
-                <p>Des images inoubliables pour vos événements spéciaux.</p>
-                <p>Prix de départ : 250CHF</p>
+    </section>    
+    
+    <section id="team">
+        <h2>Notre Équipe</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="membre1.jpg" alt="Membre 1">
+                <div class="team-info">
+                    <h3>Nom Membre 1</h3>
+                    <p>Rôle : Photographe</p>
+                    <p>Bio courte du membre 1</p>
+                </div>
             </div>
-            <div class="service">
-                <h3>Vidéo</h3>
-                <p>Production vidéo pour tous vos besoins.</p>
-                <p>Prix de départ : 300CHF</p>
+            <div class="team-member">
+                <img src="membre2.jpg" alt="Membre 2">
+                <div class="team-info">
+                    <h3>Nom Membre 2</h3>
+                    <p>Rôle : Vidéaste</p>
+                    <p>Bio courte du membre 2</p>
+                </div>
             </div>
-            <div class="service">
-                <h3>Édition</h3>
-                <p>Une post-production minutieuse.</p>
-                <p>Prix de départ : ---</p>
+            <div class="team-member">
+                <img src="membre3.jpg" alt="Membre 3">
+                <div class="team-info">
+                    <h3>Nom Membre 3</h3>
+                    <p>Rôle : Monteur vidéo</p>
+                    <p>Bio courte du membre 3</p>
+                </div>
             </div>
-            <p>Contactez nous pour avoir plus de détails sur les prix</p>
+            <!-- Ajouter plus de membres si nécessaire -->
         </div>
     </section>
     
-    <section id="team">
-        <div class="container">
-            <h2>Notre Équipe</h2>
-            <div class="team-gallery">
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Nom du membre">
-                    <h3>Nom du Membre</h3>
-                    <p>Photographe</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Yoann Krattiger">
-                    <h3>Yoann Krattiger</h3>
-                    <p>Vidéaste</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Fabio Esposito">
-                    <h3>Fabio Esposito</h3>
-                    <p>Vidéaste</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Dylan Petitjeannin">
-                    <h3>Dylan Petitjeannin</h3>
-                    <p>Télépilote de drone</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Nom du membre">
-                    <h3>Nom du Membre</h3>
-                    <p>Éditeur</p>
-                </div>
-                <div class="team-member">
-                    <img src="images/Guest.webp" alt="Nom du membre">
-                    <h3>Nom du Membre</h3>
-                    <p>Sénariste</p>
-                </div>
-            </div>
-        </div>
-    </section>    
-
-    <section id="contact">
-        <div class="container">
-            <h2>Contact - not working</h2>
-            <form id="contact-form">
-                <label for="name">Nom:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-
-                <button type="submit">Envoyer</button>
-            </form>
-        </div>
-    </section>
+    <!-- Autres sections... -->
 
     <footer>
-        <div class="container">
-            <p>&copy; 2024 SwissPixel. Tous droits réservés.</p>
+        <p>© 2024 SwissPixel. Tous droits réservés.</p>
+        <div class="social-links">
+            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
         </div>
     </footer>
-    <button id="back-to-top" title="Remonter en haut">⬆</button>
-
-    <script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
-
 </html>
