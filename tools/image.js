@@ -14,7 +14,7 @@ categories.forEach(category => {
     const files = fs.readdirSync(dirPath);
 
     imagesData[category] = files
-        .filter(file => /\.(jpg|jpeg|png|gif)$/i.test(file))
+        .filter(file => /\.(jpg|webp|jpeg|png|gif)$/i.test(file))
         .map(file => `${dirPath}/${file}`);
 });
 
