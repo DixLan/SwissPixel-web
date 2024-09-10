@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - SwissPixel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Menu Burger -->
+    <header>
+        <nav class="navbar">
+            <div class="burger-menu" id="burger-menu">
+                <div class="burger"></div>
+                <div class="burger"></div>
+                <div class="burger"></div>
+            </div>
+            <ul class="menu" id="menu">
+                <li><a href="#" data-category="mariages">Mariages</a></li>
+                <li><a href="#" data-category="corporate">Corporate</a></li>
+                <li><a href="#" data-category="evenements">Événements</a></li>
+                <li><a href="#" data-category="nature">Nature</a></li>
+            </ul>
+        </nav>
+    </header>  
+
+    <section id="portfolio-category">
+    <h2 id="category-title">Portfolio</h2>
+    <div class="back-button">
+        <a href="../index.html" class="btn-return">Retour au Menu Principal</a>
+    </div>
+    <div class="gallery" id="gallery">
+        <!-- Les images seront chargées ici via JS -->
+    </div>
+</section>
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Zoomed Image">
+    </div>
+
+    <!-- JavaScript pour le menu burger et le chargement des images -->
+    <script src="scripts.js"></script>
+
+</body>
+</html>

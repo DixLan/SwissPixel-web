@@ -110,27 +110,36 @@ header nav ul li a:hover {
 }
 
 .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
 }
 
 .gallery-item {
     position: relative;
-    width: 30%;
-    margin-bottom: 20px;
+    width: 100%;
+    padding-bottom: 75%; /* Aspect ratio 4:3, tu peux ajuster selon le besoin */
     overflow: hidden;
+    border-radius: 10px; /* Optionnel : coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour un look épuré */
 }
 
 .gallery-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
-    transition: transform 0.5s ease;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image s'adapte bien dans le conteneur sans déformation */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+.gallery-item img:hover {
+    transform: scale(1.05); /* Un léger zoom au survol pour un effet interactif */
 }
+
 
 .gallery-info {
     position: absolute;
