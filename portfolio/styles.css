@@ -1,11 +1,3 @@
-/* Styles généraux */
-body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
-}
-
 /* Menu burger */
 .navbar {
     position: fixed;
@@ -20,6 +12,50 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+
+/* Aligner le bouton burger et le menu */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.burger {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    margin: 5px;
+}
+
+.menu {
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    position: absolute; /* Menu en position absolue pour qu'il apparaisse sous le bouton */
+    top: 60px; /* Ajuste en fonction de la hauteur de ta navbar */
+    left: 15px; /* Aligné à gauche */
+    background-color: rgba(0, 0, 0, 0.9); /* Couleur de fond du menu */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.menu li {
+    margin: 10px 0;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+/* Afficher le menu lorsqu'il est ouvert */
+.menu.show {
+    display: flex; /* Flex pour s'assurer que les items sont bien alignés verticalement */
+}
+
 
 /* Bouton de retour */
 .back-button {
@@ -41,39 +77,6 @@ body {
     background-color: #e67e22;
 }
 
-
-.burger-menu {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-}
-
-.burger {
-    width: 30px;
-    height: 4px;
-    background-color: #fff;
-    margin: 5px;
-}
-
-.menu {
-    display: none;
-    list-style: none;
-    padding: 0;
-}
-
-.menu li {
-    margin: 10px 0;
-}
-
-.menu li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-}
-
-.menu.show {
-    display: block;
-}
 
 /* Section portfolio */
 #portfolio-category {

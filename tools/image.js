@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Dossiers d'images
-const categories = ['events'];
-const baseDir = '../images/';
+const categories = ['events', 'danses', 'Portfolio Thibaut_MZL', 'sports'];
+const baseDir = './images/';
 
 // Créer un objet pour stocker les images
 const imagesData = {};

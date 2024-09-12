@@ -31,23 +31,29 @@ function loadImages(category) {
             const gallery = document.getElementById('gallery');
             gallery.innerHTML = '';
 
-            // Ajouter les images de la catégorie
-            data[category].forEach(imagePath => {
-                const galleryItem = document.createElement('div');
-                galleryItem.classList.add('gallery-item');
-                const img = document.createElement('img');
-                img.setAttribute('src', imagePath);
-                img.setAttribute('loading', 'lazy'); // Lazy loading
-                img.onload = () => {
-                    adjustImageHeight(galleryItem, img); // Ajuste la hauteur une fois l'image chargée
-                };
-                img.addEventListener('click', () => openLightbox(img.src)); // Ouvrir la Lightbox au clic
-                galleryItem.appendChild(img);
-                gallery.appendChild(galleryItem);
-            });
+            // Vérifier si la catégorie existe dans le fichier JSON
+            if (data[category]) {
+                // Ajouter les images de la catégorie
+                data[category].forEach(imagePath => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.classList.add('gallery-item');
+                    const img = document.createElement('img');
+                    img.setAttribute('src', imagePath);
+                    img.setAttribute('loading', 'lazy'); // Lazy loading natif
+                    img.onload = () => {
+                        adjustImageHeight(galleryItem, img); // Ajuste la hauteur une fois l'image chargée
+                    };
+                    img.addEventListener('click', () => openLightbox(img.src)); // Ouvrir la Lightbox au clic
+                    galleryItem.appendChild(img);
+                    gallery.appendChild(galleryItem);
+                });
+            } else {
+                console.error(`La catégorie "${category}" n'existe pas dans les données.`);
+            }
         })
         .catch(error => console.error('Erreur lors du chargement des images:', error));
 }
+
 
 // Fonction pour capitaliser la première lettre de la catégorie
 function capitalizeFirstLetter(string) {
@@ -105,5 +111,5 @@ document.querySelector('.lightbox .close').addEventListener('click', closeLightb
 
 // Charger par défaut la catégorie "evenements"
 window.onload = () => {
-    loadImages('evenements');
+    loadImages('events');
 };
