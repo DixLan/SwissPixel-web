@@ -4,6 +4,7 @@ header {
     position: fixed;
     width: 100%; /* Utiliser 100% au lieu de 100vw pour éviter le dépassement */
     top: 0;
+    color: #f7f7f7;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
@@ -101,6 +102,7 @@ html, body {
     min-height: 100vh; /* S'assurer que la section occupe toute la hauteur de l'écran */
     width: 100%; /* Utiliser 100% pour éviter le dépassement horizontal */
     background-color: #000;
+    color: #f7f7f7;
     overflow: hidden;
     display: flex;
     justify-content: center;
