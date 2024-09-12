@@ -1,3 +1,4 @@
+/* Global */
 * {
     margin: 0;
     padding: 0;
@@ -9,6 +10,7 @@ body {
     color: #333;
 }
 
+/* Header */
 header {
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
@@ -42,6 +44,7 @@ header nav ul li a:hover {
     color: #381a00;
 }
 
+/* Hero Section */
 .hero {
     position: relative;
     height: 100vh;
@@ -68,6 +71,7 @@ header nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .hero-text h2 {
@@ -82,7 +86,7 @@ header nav ul li a:hover {
 
 .cta-buttons {
     display: flex;
-    gap: 20px; /* Espace entre les boutons */
+    gap: 20px;
 }
 
 .cta-button {
@@ -98,6 +102,7 @@ header nav ul li a:hover {
     background-color: #381a00;
 }
 
+/* Portfolio */
 #portfolio {
     padding: 50px;
     background-color: #f7f7f7;
@@ -119,10 +124,10 @@ header nav ul li a:hover {
 .gallery-item {
     position: relative;
     width: 100%;
-    padding-bottom: 75%; /* Aspect ratio 4:3, tu peux ajuster selon le besoin */
+    padding-bottom: 75%; /* Aspect ratio 4:3 */
     overflow: hidden;
-    border-radius: 10px; /* Optionnel : coins arrondis */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour un look épuré */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .gallery-item img {
@@ -131,41 +136,16 @@ header nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Assure que l'image s'adapte bien dans le conteneur sans déformation */
+    object-fit: cover;
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
 
 .gallery-item img:hover {
-    transform: scale(1.05); /* Un léger zoom au survol pour un effet interactif */
+    transform: scale(1.05);
 }
 
-
-.gallery-info {
-    position: absolute;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover .gallery-info {
-    opacity: 1;
-}
-
-.gallery-info h3 {
-    margin: 0;
-    font-size: 1.5rem;
-}
-
-.gallery-info p {
-    margin: 5px 0 0;
-}
-
+/* Video Prestations */
 #video-prestations {
     padding: 50px;
     background-color: #f7f7f7;
@@ -184,20 +164,19 @@ header nav ul li a:hover {
 }
 
 .video-item {
-    width: 32%; /* Chaque vidéo occupe 32% de la largeur du conteneur */
+    width: 32%;
     margin-bottom: 20px;
 }
 
 .video-item iframe {
     width: 100%;
     height: auto;
-    border: 0;
-    aspect-ratio: 16 / 9; /* Assure un ratio de 16:9 pour les vidéos */
+    aspect-ratio: 16 / 9;
 }
 
 .video-info {
     text-align: center;
-    margin-top: 10px; /* Ajoute un espace entre la vidéo et son texte */
+    margin-top: 10px;
 }
 
 .video-info h3 {
@@ -211,18 +190,7 @@ header nav ul li a:hover {
     color: #777;
 }
 
-@media screen and (max-width: 1024px) {
-    .video-item {
-        width: 48%; /* Deux vidéos par ligne sur les tablettes */
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .video-item {
-        width: 100%; /* Une vidéo par ligne sur mobile */
-    }
-}
-
+/* Team Section */
 #team {
     padding: 50px;
     background-color: #fff;
@@ -269,6 +237,7 @@ header nav ul li a:hover {
     color: #777;
 }
 
+/* Prestations Section */
 #prestations {
     padding: 50px;
     background-color: #f7f7f7;
@@ -306,56 +275,7 @@ header nav ul li a:hover {
     color: #555;
 }
 
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-}
-
-.social-links a img {
-    width: 24px;
-    margin: 0 10px;
-    transition: transform 0.3s;
-}
-
-.social-links a img:hover {
-    transform: scale(1.2);
-}
-
-.lightbox-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-.lightbox-content img {
-    max-width: 90%;
-    max-height: 90%;
-    border: 5px solid #fff;
-}
-
-/* Animation pour faire apparaître les éléments de manière fluide */
-.fade-in {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Section de contact */
+/* Contact Section */
 .contact-section {
     padding: 60px 0;
     background-color: #f7f7f7;
@@ -374,7 +294,6 @@ footer {
     color: #555;
 }
 
-/* Container pour les réseaux sociaux et les détails de contact */
 .contact-info {
     display: flex;
     flex-direction: column;
@@ -414,4 +333,133 @@ footer {
 
 .contact-details a:hover {
     text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Responsiveness */
+
+/* Tablets */
+@media screen and (max-width: 1024px) {
+    header {
+        padding: 10px 20px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text h2 {
+        font-size: 3rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    .video-item {
+        width: 48%; /* Deux vidéos par ligne sur les tablettes */
+    }
+
+    .team-member {
+        width: 45%; /* Deux membres par ligne */
+    }
+
+    .prestation-item {
+        width: 45%; /* Deux prestations par ligne */
+    }
+}
+
+/* Mobiles */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 10px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .video-item {
+        width: 100%; /* Une vidéo par ligne sur mobile */
+    }
+
+    .team-member {
+        width: 100%; /* Un membre par ligne */
+    }
+
+    .prestation-item {
+        width: 100%; /* Une prestation par ligne */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .video-item {
+        width: 100%;
+    }
+
+    .team-member {
+        width: 100%;
+    }
+
+    .prestation-item {
+        width: 100%;
+    }
+
+    .social-media img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-details p {
+        font-size: 1rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
 }
