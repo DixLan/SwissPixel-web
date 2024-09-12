@@ -118,7 +118,7 @@
 }
 
 
-/* Lightbox styles */
+/* Styles pour la Lightbox */
 .lightbox {
     visibility: hidden;
     opacity: 0;
@@ -128,11 +128,10 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.9); /* Fond sombre */
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
@@ -141,25 +140,30 @@
     opacity: 1;
 }
 
-.lightbox.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Image dans la lightbox */
+/* Contenu de la Lightbox (l'image) avec un cadre doux */
 .lightbox-content {
     max-width: 90%;
     max-height: 90%;
-    transform: scale(0.8); /* Réduit l'image initialement */
-    transition: transform 0.4s ease; /* Animation douce de zoom */
+    background-color: white; /* Couleur de fond du cadre */
+    padding: 15px; /* Espace autour de l'image */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce pour l'effet de cadre */
+    transform: scale(0.8); /* Réduit initialement la taille pour l'animation */
+    transition: transform 0.4s ease; /* Animation douce */
 }
 
 .lightbox.show .lightbox-content {
-    transform: scale(1); /* L'image grandit à l'apparition */
+    transform: scale(1); /* Agrandir lors de l'ouverture */
 }
 
+/* Image dans la Lightbox */
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 5px; /* Coins légèrement arrondis de l'image */
+}
 
-
+/* Bouton de fermeture */
 .lightbox .close {
     position: absolute;
     top: 20px;
@@ -174,6 +178,7 @@
 .lightbox .close:focus {
     color: #bbb;
 }
+
 
 
 /* Styles pour le conteneur du bouton */
