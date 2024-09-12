@@ -1,24 +1,38 @@
+/* Enlever les marges et padding globaux */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
 /* Header et navigation */
 header {
     background: rgba(0, 0, 0, 0.7);
     position: fixed;
-    width: 100%; /* Utiliser 100% au lieu de 100vw pour éviter le dépassement */
+    width: calc(100% - 40px); /* Ajuster la largeur pour éviter le dépassement */
     top: 0;
     color: #f7f7f7;
-    padding: 20px 40px;
+    padding: 20px 20px; /* Ajuster les marges internes */
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 
+/* Navigation ul */
 header nav ul {
     list-style: none;
     display: flex;
+    padding-left: 0; /* Supprimer les marges internes */
+    margin: 0; /* Supprimer la marge externe */
 }
 
 header nav ul li {
     margin-left: 20px;
+}
+
+header nav ul li:first-child {
+    margin-left: 0; /* Supprimer la marge gauche du premier élément */
 }
 
 header nav ul li a {
@@ -32,14 +46,15 @@ header nav ul li a:hover {
     color: #381a00;
 }
 
+/* Menu burger */
 #burger-menu {
-    display: none;
+    display: none; /* Cacher par défaut sur les grands écrans */
     cursor: pointer;
     flex-direction: column;
     justify-content: space-between;
     height: 24px;
     width: 30px;
-    margin-right: 40px; /* Espace à droite pour éloigner du bord */
+    margin-right: 0; /* Supprimer la marge à droite du burger */
 }
 
 .burger-line {
@@ -48,23 +63,16 @@ header nav ul li a:hover {
     background-color: #fff;
 }
 
-/* Enlever les marges par défaut du body et html */
-html, body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Empêche le défilement horizontal */
-}
-
-
-/* Media queries pour mobiles */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 10px 20px;
+/* Afficher le menu burger sur les écrans jusqu'à 1024px */
+@media screen and (max-width: 1024px) {
+    #burger-menu {
+        display: flex; /* Afficher sur les écrans de 1024px ou moins */
+        margin-right: 20px; /* Ajuster la marge à droite */
     }
 
     /* Cacher les liens de navigation par défaut */
     header nav ul {
-        display: none;
+        display: none; /* Cacher le menu sur les petits écrans */
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.9);
         position: absolute;
@@ -75,14 +83,9 @@ html, body {
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     }
 
-    /* Afficher le menu burger */
-    #burger-menu {
-        display: flex;
-    }
-
     /* Afficher les liens de navigation lorsqu'ils sont activés */
     header nav ul.show {
-        display: flex;
+        display: flex; /* Afficher le menu quand le burger est cliqué */
     }
 
     header nav ul li {
@@ -96,11 +99,11 @@ html, body {
     }
 }
 
-/* Hero section avec vidéo pleine largeur et hauteur */
+/* Section Hero avec vidéo pleine largeur et hauteur */
 .hero {
     position: relative;
     min-height: 100vh; /* S'assurer que la section occupe toute la hauteur de l'écran */
-    width: 100%; /* Utiliser 100% pour éviter le dépassement horizontal */
+    width: 100%; /* Remplir toute la largeur */
     background-color: #000;
     color: #f7f7f7;
     overflow: hidden;
@@ -115,15 +118,13 @@ html, body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Remplir la largeur de l'écran sans dépasser */
-    height: 100%;
-    object-fit: cover;
+    width: 100%; /* Remplir toute la largeur */
+    height: 100%; /* Remplir toute la hauteur */
+    object-fit: cover; /* Couvrir tout l'espace sans distorsion */
     z-index: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
 }
 
+/* Texte de la section Hero */
 .hero-text {
     z-index: 10;
     display: flex;
@@ -142,48 +143,7 @@ html, body {
     margin-bottom: 30px;
 }
 
-/* Responsive adjustments for mobile */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 10px 20px;
-    }
-
-    /* Espacer davantage le burger sur les mobiles */
-    #burger-menu {
-        margin-right: 50px; /* Plus d'espace entre le menu burger et le bord de l'écran */
-    }
-
-    .hero {
-        min-height: 70vh; /* Ajuster la hauteur sur les petits écrans */
-    }
-
-    .hero-text h2 {
-        font-size: 2.5rem;
-    }
-
-    .subtext {
-        font-size: 1.2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .hero {
-        min-height: 60vh;
-    }
-
-    .hero-text h2 {
-        font-size: 2rem;
-    }
-
-    .subtext {
-        font-size: 1rem;
-    }
-}
-
+/* Boutons CTA */
 .cta-buttons {
     display: flex;
     gap: 20px;
@@ -445,10 +405,11 @@ footer {
 
 /* Responsiveness */
 
-/* Tablets */
+/* Mobiles et tablettes */
 @media screen and (max-width: 1024px) {
     header {
         padding: 10px 20px;
+        width: 100%; /* S'assurer que le header prend toute la largeur */
     }
 
     header nav ul {
@@ -481,6 +442,7 @@ footer {
 @media screen and (max-width: 768px) {
     header {
         padding: 10px;
+        width: 100%;
     }
 
     header nav ul {
