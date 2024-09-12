@@ -19,55 +19,110 @@ menuLinks.forEach(link => {
     });
 });
 
-// Fonction pour charger les images avec lazy loading
+// Variables pour la gestion du chargement par groupe
+const imagesPerPage = 20;
+let categoryIndexes = {}; // Objets pour stocker les index de chaque catégorie
+
+// Fonction pour charger les images en groupes
 function loadImages(category) {
+    console.log(`Loading images for category: ${category}`);
     // Mettre à jour le titre avec la catégorie actuelle
     const categoryTitle = document.getElementById('category-title');
     categoryTitle.textContent = `Catégorie : ${capitalizeFirstLetter(category)}`;
 
+    // Initialiser l'index si cette catégorie n'a pas encore été chargée
+    if (!categoryIndexes[category]) {
+        categoryIndexes[category] = 0;
+    }
+
+    // Réinitialiser la galerie et le bouton "Charger plus"
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = ''; // Réinitialiser la galerie pour la nouvelle catégorie
+
+    // Charger un premier groupe d'images
     fetch('images.json')
         .then(response => response.json())
         .then(data => {
-            const gallery = document.getElementById('gallery');
-            gallery.innerHTML = '';
+            loadMoreImages(data[category], category); // Charger les premières images
+        })
+        .catch(error => console.error('Erreur lors du chargement des images:', error));
 
-            // Vérifier si la catégorie existe dans le fichier JSON
-            if (data[category]) {
-                // Ajouter les images de la catégorie
-                data[category].forEach(imagePath => {
-                    const galleryItem = document.createElement('div');
-                    galleryItem.classList.add('gallery-item');
-                    const img = document.createElement('img');
-                    img.setAttribute('src', imagePath);
-                    img.setAttribute('loading', 'lazy'); // Lazy loading natif
-                    img.onload = () => {
-                        adjustImageHeight(galleryItem, img); // Ajuste la hauteur une fois l'image chargée
-                    };
-                    img.addEventListener('click', () => openLightbox(img.src)); // Ouvrir la Lightbox au clic
-                    galleryItem.appendChild(img);
-                    gallery.appendChild(galleryItem);
-                });
-            } else {
-                console.error(`La catégorie "${category}" n'existe pas dans les données.`);
-            }
+    // Attacher dynamiquement la catégorie au bouton "Charger plus"
+    const loadMoreButton = document.getElementById('load-more');
+    loadMoreButton.style.display = 'block'; // S'assurer que le bouton est visible
+    loadMoreButton.setAttribute('data-category', category); // Assigner la catégorie au bouton
+    loadMoreButton.removeEventListener('click', handleLoadMore); // Retirer tout ancien événement
+    loadMoreButton.addEventListener('click', handleLoadMore); // Ajouter l'événement avec la bonne catégorie
+}
+
+// Fonction pour charger plus d'images
+function loadMoreImages(images, category) {
+    const gallery = document.getElementById('gallery');
+
+    // Utiliser l'index spécifique à la catégorie
+    const currentIndex = categoryIndexes[category];
+    const slice = images.slice(currentIndex, currentIndex + imagesPerPage); // Prendre un groupe d'images
+
+    console.log(`Current index for category ${category}: ${currentIndex}`);
+
+    slice.forEach(imagePath => {
+        const galleryItem = document.createElement('div');
+        galleryItem.classList.add('gallery-item');
+        const img = document.createElement('img');
+        img.setAttribute('src', imagePath);
+        img.setAttribute('loading', 'lazy'); // Lazy loading natif
+
+        // Ajuster la hauteur de l'image une fois qu'elle est chargée
+        img.onload = () => {
+            adjustImageHeight(galleryItem, img);
+        };
+
+        img.addEventListener('click', () => openLightbox(img.src)); // Ouvrir la Lightbox au clic
+
+        galleryItem.appendChild(img);
+        gallery.appendChild(galleryItem);
+    });
+
+    // Mettre à jour l'index de la catégorie après chargement
+    categoryIndexes[category] += imagesPerPage;
+
+    console.log(`Updated index for category ${category}: ${categoryIndexes[category]}`);
+
+    // Masquer le bouton si toutes les images sont chargées
+    if (categoryIndexes[category] >= images.length) {
+        const loadMoreButton = document.getElementById('load-more');
+        loadMoreButton.style.display = 'none'; // Masquer le bouton
+    }
+}
+
+// Fonction qui gère le chargement supplémentaire d'images
+function handleLoadMore(event) {
+    const button = event.currentTarget; // Obtenir le bouton
+    const category = button.getAttribute('data-category'); // Récupérer la catégorie liée au bouton
+
+    console.log(`Loading more images for category: ${category}`);
+
+    // Récupérer les images depuis le fichier JSON
+    fetch('images.json')
+        .then(response => response.json())
+        .then(data => {
+            loadMoreImages(data[category], category); // Charger plus d'images pour la catégorie active
         })
         .catch(error => console.error('Erreur lors du chargement des images:', error));
 }
 
-
-// Fonction pour capitaliser la première lettre de la catégorie
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-
-// Ajuste la hauteur des images en fonction de leur aspect ratio
+// Fonction pour ajuster la hauteur des images dans la grille
 function adjustImageHeight(item, img) {
-    const rowHeight = 8.33; // Hauteur définie dans grid-auto-rows
+    const rowHeight = 10;
     const imgHeight = img.naturalHeight;
     const imgWidth = img.naturalWidth;
     const aspectRatio = imgHeight / imgWidth;
     item.style.gridRowEnd = `span ${Math.ceil(aspectRatio * 100 / rowHeight)}`;
+}
+
+// Fonction pour capitaliser la première lettre de la catégorie
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Fonction pour ouvrir la Lightbox
@@ -76,7 +131,7 @@ function openLightbox(src) {
     const lightboxImg = document.getElementById('lightbox-img');
     lightboxImg.src = src;
 
-    lightbox.classList.add('show'); // Ajouter la classe pour afficher la Lightbox
+    lightbox.classList.add('show'); // Afficher la Lightbox
 
     // Écouter les événements du clavier pour fermer avec Escape
     document.addEventListener('keydown', closeLightboxOnEscape);
@@ -85,11 +140,8 @@ function openLightbox(src) {
 // Fonction pour fermer la Lightbox
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-
-    lightbox.classList.remove('show'); // Retirer la classe show
-
-    // Retirer l'écouteur d'événement pour la touche Escape
-    document.removeEventListener('keydown', closeLightboxOnEscape);
+    lightbox.classList.remove('show'); // Masquer la Lightbox
+    document.removeEventListener('keydown', closeLightboxOnEscape); // Retirer l'écouteur d'événement
 }
 
 // Fermer la Lightbox lorsque la touche Escape est appuyée
