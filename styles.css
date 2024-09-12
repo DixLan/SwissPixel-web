@@ -354,3 +354,64 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* Section de contact */
+.contact-section {
+    padding: 60px 0;
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+/* Container pour les réseaux sociaux et les détails de contact */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-media {
+    margin-bottom: 30px;
+}
+
+.social-media a {
+    margin: 0 15px;
+    display: inline-block;
+}
+
+.social-media img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease;
+}
+
+.social-media img:hover {
+    transform: scale(1.1);
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-details a {
+    color: #f39c12;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
