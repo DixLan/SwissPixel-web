@@ -40,3 +40,12 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.fade-in').forEach(el => {
     observer.observe(el);
 });
+
+// Fonction pour activer le menu burger
+const burgerMenu = document.getElementById('burger-menu');
+const navLinks = document.getElementById('nav-links');
+
+// Ouvrir/fermer le menu burger au clic
+burgerMenu.addEventListener('click', () => {
+    navLinks.classList.toggle('show'); // Ajoute/retire la classe 'show' pour ouvrir/fermer le menu
+});
