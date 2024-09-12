@@ -1,3 +1,10 @@
+/* Enlever les marges par défaut du body et html */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+}
+
 /* Menu burger */
 .navbar {
     position: fixed;
@@ -13,11 +20,12 @@
     align-items: center;
 }
 
-/* Aligner le bouton burger et le menu */
+/* Burger Menu */
 .burger-menu {
     display: flex;
     flex-direction: column;
     cursor: pointer;
+    margin-right: 20px; /* Ajuster pour l'espacement */
 }
 
 .burger {
@@ -27,16 +35,17 @@
     margin: 5px;
 }
 
+/* Menu de navigation */
 .menu {
     display: none;
     list-style: none;
     padding: 0;
     margin: 0;
     flex-direction: column;
-    position: absolute; /* Menu en position absolue pour qu'il apparaisse sous le bouton */
-    top: 60px; /* Ajuste en fonction de la hauteur de ta navbar */
-    left: 15px; /* Aligné à gauche */
-    background-color: rgba(0, 0, 0, 0.9); /* Couleur de fond du menu */
+    position: absolute; /* Position absolue pour apparaitre sous le bouton */
+    top: 60px; /* Ajusté en fonction de la hauteur de ta navbar */
+    left: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 10px;
     border-radius: 5px;
 }
@@ -51,11 +60,9 @@
     font-size: 1.2rem;
 }
 
-/* Afficher le menu lorsqu'il est ouvert */
 .menu.show {
-    display: flex; /* Flex pour s'assurer que les items sont bien alignés verticalement */
+    display: flex;
 }
-
 
 /* Bouton de retour */
 .back-button {
@@ -77,6 +84,20 @@
     background-color: #e67e22;
 }
 
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .btn-return {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-return {
+        font-size: 0.9rem;
+        padding: 6px 12px;
+    }
+}
 
 /* Section portfolio */
 #portfolio-category {
@@ -95,7 +116,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Colonnes adaptatives */
     grid-auto-rows: 10px; /* Hauteur automatique basée sur le contenu */
-    gap: 15px; /* Espace entre les images */
+    gap: 15px;
 }
 
 .gallery-item {
@@ -106,7 +127,7 @@
 .gallery-item img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* Assure que les images ne soient pas recadrées */
+    object-fit: contain;
     display: block;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -114,11 +135,10 @@
 }
 
 .gallery-item img:hover {
-    transform: scale(1.05); /* Zoom léger au survol */
+    transform: scale(1.05);
 }
 
-
-/* Styles pour la Lightbox */
+/* Lightbox */
 .lightbox {
     visibility: hidden;
     opacity: 0;
@@ -128,7 +148,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Fond sombre */
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,30 +160,27 @@
     opacity: 1;
 }
 
-/* Contenu de la Lightbox (l'image) avec un cadre doux */
 .lightbox-content {
     max-width: 90%;
     max-height: 90%;
-    background-color: white; /* Couleur de fond du cadre */
-    padding: 15px; /* Espace autour de l'image */
-    border-radius: 10px; /* Coins arrondis */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Ombre douce pour l'effet de cadre */
-    transform: scale(0.8); /* Réduit initialement la taille pour l'animation */
-    transition: transform 0.4s ease; /* Animation douce */
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
 }
 
 .lightbox.show .lightbox-content {
-    transform: scale(1); /* Agrandir lors de l'ouverture */
+    transform: scale(1);
 }
 
-/* Image dans la Lightbox */
 .lightbox-content img {
     max-width: 100%;
     max-height: 100%;
-    border-radius: 5px; /* Coins légèrement arrondis de l'image */
+    border-radius: 5px;
 }
 
-/* Bouton de fermeture */
 .lightbox .close {
     position: absolute;
     top: 20px;
@@ -179,16 +196,13 @@
     color: #bbb;
 }
 
-
-
-/* Styles pour le conteneur du bouton */
+/* Load More Button */
 #load-more-container {
     display: flex;
-    justify-content: center; /* Centre le bouton horizontalement */
-    margin-top: 20px; /* Espace entre la galerie et le bouton */
+    justify-content: center;
+    margin-top: 20px;
 }
 
-/* Styles pour le bouton Charger plus */
 .load-more-btn {
     padding: 10px 20px;
     font-size: 1.2rem;
@@ -200,5 +214,75 @@
 }
 
 .load-more-btn:hover {
-    background-color: #e67e22; /* Changement de couleur au survol */
+    background-color: #e67e22;
+}
+
+/* Responsive Styles */
+
+/* Jusqu'à 1024px */
+@media screen and (max-width: 1024px) {
+    #burger-menu {
+        display: flex; /* Afficher le burger menu */
+    }
+
+    /* Masquer le menu par défaut */
+    .menu {
+        display: none;
+    }
+
+    /* Afficher le menu burger au clic */
+    .menu.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 10px;
+        background-color: rgba(0, 0, 0, 0.9);
+        padding: 15px;
+        border-radius: 5px;
+        z-index: 1001;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+/* Jusqu'à 768px */
+@media screen and (max-width: 768px) {
+    .burger-menu {
+        margin-right: 15px;
+    }
+
+    #portfolio-category h2 {
+        font-size: 2rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* Jusqu'à 480px */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 5px;
+    }
+
+    .burger-menu {
+        margin-right: 10px;
+    }
+
+    #portfolio-category h2 {
+        font-size: 1.5rem;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .social-media img {
+        width: 30px;
+        height: 30px;
+    }
 }
