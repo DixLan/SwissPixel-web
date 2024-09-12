@@ -65,11 +65,11 @@ function loadMoreImages(images, category) {
 
     console.log(`Current index for category ${category}: ${currentIndex}`);
 
-    slice.forEach(imagePath => {
+    slice.forEach(imageData => {
         const galleryItem = document.createElement('div');
         galleryItem.classList.add('gallery-item');
         const img = document.createElement('img');
-        img.setAttribute('src', imagePath);
+        img.setAttribute('src', imageData.thumbnail); // Charger la miniature
         img.setAttribute('loading', 'lazy'); // Lazy loading natif
 
         // Ajuster la hauteur de l'image une fois qu'elle est chargée
@@ -77,7 +77,8 @@ function loadMoreImages(images, category) {
             adjustImageHeight(galleryItem, img);
         };
 
-        img.addEventListener('click', () => openLightbox(img.src)); // Ouvrir la Lightbox au clic
+        // Lors du clic, ouvrir l'image en haute résolution dans la Lightbox
+        img.addEventListener('click', () => openLightbox(imageData.full)); 
 
         galleryItem.appendChild(img);
         gallery.appendChild(galleryItem);
@@ -129,7 +130,7 @@ function capitalizeFirstLetter(string) {
 function openLightbox(src) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
-    lightboxImg.src = src;
+    lightboxImg.src = src; // Charger l'image haute résolution dans la Lightbox
 
     lightbox.classList.add('show'); // Afficher la Lightbox
 
