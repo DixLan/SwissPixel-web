@@ -2,7 +2,7 @@
   "events": [
     {
       "thumbnail": "../images/events/thumbnails/1-_TMZ6694.webp",
-      "full": "../images//events/1-_TMZ6694.webp"
+      "full": "../images/events/1-_TMZ6694.webp"
     },
     {
       "thumbnail": "../images/events/thumbnails/1-_TMZ8919-Enhanced-NR.webp",
@@ -443,6 +443,34 @@
     {
       "thumbnail": "../images/events/thumbnails/9-_TMZ9612.webp",
       "full": "../images/events/9-_TMZ9612.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0053.webp",
+      "full": "../images/events/IMG_0053.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0116.webp",
+      "full": "../images/events/IMG_0116.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0128.webp",
+      "full": "../images/events/IMG_0128.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0158.webp",
+      "full": "../images/events/IMG_0158.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0250.webp",
+      "full": "../images/events/IMG_0250.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0272.webp",
+      "full": "../images/events/IMG_0272.webp"
+    },
+    {
+      "thumbnail": "../images/events/thumbnails/IMG_0333.webp",
+      "full": "../images/events/IMG_0333.webp"
     }
   ],
   "danses": [

@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const path = require('path');
 
 // Répertoire source des images (où les images originales sont stockées)
-const sourceDir = 'images'; // Répertoire racine des images originales
+const sourceDir = 'C:/Users/dpeti/Downloads/toWEBP'; // Répertoire racine des images originales
 
 // Taille et qualité des miniatures (paramètre ajustable)
 const qualityPercentage = 50; // Qualité de l'image en pourcentage (50% ici)
